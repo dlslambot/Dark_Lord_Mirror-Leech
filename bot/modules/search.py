@@ -105,11 +105,12 @@ def torserbut(update, context):
                     endpoint = 'Trending'
                 elif method == 'apirecent':
                     endpoint = 'Recent'
-                editMessage(f"<b>Listing {endpoint} Items...\nTorrent Site:- <i>{SITES.get(site)}</i></b>", message)
+                msg += f"\n<b>Torrent Searching In Progress</b>
+                editMessage(f"<b>┌ Listing {endpoint} Items...\nTorrent Site:- <i>{SITES.get(site)}</i></b>", message)
             else:
-                editMessage(f"<b>Searching for <i>{key}</i>\nTorrent Site:- <i>{SITES.get(site)}</i></b>", message)
+                editMessage(f"<b>┌ Searching for <i>{key}</i>\nTorrent Site:- <i>{SITES.get(site)}</i></b>", message)
         else:
-            editMessage(f"<b>Searching for <i>{key}</i>\nTorrent Site:- <i>{site.capitalize()}</i></b>", message)
+            editMessage(f"<b>└ Searching for <i>{key}</i>\nTorrent Site:- <i>{site.capitalize()}</i></b>", message)
         Thread(target=_search, args=(key, site, message, method)).start()
     else:
         query.answer()
