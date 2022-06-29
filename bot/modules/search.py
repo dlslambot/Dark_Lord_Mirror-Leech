@@ -105,7 +105,7 @@ def torserbut(update, context):
                     endpoint = 'Trending'
                 elif method == 'apirecent':
                     endpoint = 'Recent'
-                msg += f"\n<b>Torrent Searching In Progress</b>
+                editMessage(f"\n<b>Torrent Searching In Progress</b>)
                 editMessage(f"<b>┌ Listing {endpoint} Items...\nTorrent Site:- <i>{SITES.get(site)}</i></b>", message)
             else:
                 editMessage(f"<b>┌ Searching for <i>{key}</i>\nTorrent Site:- <i>{SITES.get(site)}</i></b>", message)
