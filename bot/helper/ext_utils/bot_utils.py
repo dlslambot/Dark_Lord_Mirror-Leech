@@ -149,7 +149,7 @@ def get_readable_message():
                 try:
                     msg += f"\n<b>├ Seeders:</b> {download.aria_download().num_seeders}" \
                            f"\n<b>├ Peers:</b> {download.aria_download().connections}"
-                    msg += f'\n<b>├ TEngine: </b><a href="https://aria2.github.io">Aria2</a>'
+                    msg += f'\n<b>├ Engine: </b><a href="https://aria2.github.io">Aria2</a>'
                 except:
                     pass
                 try:
@@ -164,9 +164,10 @@ def get_readable_message():
                 msg += f"\n<b>├ Speed: </b>{get_readable_file_size(download.torrent_info().upspeed)}/s"
                 msg += f"\n<b>├ Uploaded: </b>{get_readable_file_size(download.torrent_info().uploaded)}"
                 msg += f"\n<b>├ Ratio: </b>{round(download.torrent_info().ratio, 3)}"
+                msg += f"\n<b>├ Source: </b><a href="{download.message.link}">{download.message.from_user.first_name}</a>"
                 msg += f"\n<b>├ Time: </b>{get_readable_time(download.torrent_info().seeding_time)}"
                 msg += f"\n<b>├ Elapsed: </b>{get_readable_time(time() - download.message.date.timestamp())}"
-                msg += f'\n<b>├ TEngine: </b><a href="https://www.qbittorrent.org">qBittorrent</a>'
+                msg += f'\n<b>├ Engine: </b><a href="https://www.qbittorrent.org">qBittorrent</a>'
                 msg += f"\n<b>└ Stop:</b> <code>/{BotCommands.CancelMirror} {download.gid()}</code>"
             else:
                 msg += f"\n<b>└ Size: </b>{download.size()}"
